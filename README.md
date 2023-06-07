@@ -1,6 +1,5 @@
 # do_me_application
-
-A new Flutter project.
+Do Me is a To Do List Application.
 
 ## Getting Started
 
