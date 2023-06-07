@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../cnstants/colors.dart';
 import '../standard/todo.dart';
@@ -13,6 +14,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final _todoText = TextEditingController();
+  bool _validate = false;
   final todoList = ToDo.todoList();
   List<ToDo> _foundToDo = [];
   final _todoController = TextEditingController();
@@ -38,14 +41,14 @@ class _HomeState extends State<Home> {
                   child: ListView(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 50, bottom: 20),
+                        margin: EdgeInsets.only(top: 20, bottom: 20),
                         child: Text(
                           'My To Do List!',
                           style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.w500),
+                              fontSize: 25, fontWeight: FontWeight.w500),
                         ),
                       ),
-                      for (ToDo todo in _foundToDo)
+                      for (ToDo todo in _foundToDo.reversed)
                         ToDoItem(
                           todo: todo,
                           onToDoChanged: _handleToDoChange,
@@ -114,6 +117,8 @@ class _HomeState extends State<Home> {
                         controller: _todoController,
                         autofocus: true, //step 6 bottomsheet overlapped
                         decoration: InputDecoration(
+                            errorText:
+                                _validate ? 'Value Can\'t Be Empty' : null,
                             contentPadding: EdgeInsets.all(0),
                             prefixIcon: Icon(
                               Icons.check_box_outline_blank,
@@ -140,7 +145,28 @@ class _HomeState extends State<Home> {
                                   color: tdBlue),
                             ),
                             onTap: () {
-                              _addToDoItem(_todoController.text);
+                              setState(() {
+                                !_todoController.text.isEmpty
+                                    ? _addToDoItem(_todoController.text)
+                                    : ScaffoldMessenger.of(context)
+                                        .showSnackBar(new SnackBar(
+                                        content: Text(
+                                            'You Can not add an empty task!'),
+                                        behavior: SnackBarBehavior.floating,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(24),
+                                        ),
+                                        margin: EdgeInsets.only(
+                                            bottom: MediaQuery.of(context)
+                                                    .size
+                                                    .height -
+                                                100,
+                                            right: 20,
+                                            left: 20),
+                                      ));
+                              });
+                              // _addToDoItem(_todoController.text);
                             },
                           ),
                         ],
