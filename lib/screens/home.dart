@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter/services.dart';
+// import 'package:flutter_slidable/flutter_slidable.dart';
 
 import '../cnstants/colors.dart';
 import '../standard/todo.dart';
@@ -16,6 +17,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final _todoText = TextEditingController();
   bool _validate = false;
+  String todovalue = ''; //-----------
   final todoList = ToDo.todoList();
   List<ToDo> _foundToDo = [];
   final _todoController = TextEditingController();
@@ -33,21 +35,13 @@ class _HomeState extends State<Home> {
       body: Stack(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             child: Column(
               children: [
                 searchBox(),
                 Expanded(
                   child: ListView(
                     children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 20, bottom: 20),
-                        child: Text(
-                          'My To Do List!',
-                          style: TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.w500),
-                        ),
-                      ),
                       for (ToDo todo in _foundToDo.reversed)
                         ToDoItem(
                           todo: todo,
@@ -63,12 +57,8 @@ class _HomeState extends State<Home> {
           Align(
             alignment: Alignment.bottomRight,
             child: Container(
-              margin: EdgeInsets.only(right: 20, bottom: 30),
+              margin: const EdgeInsets.only(right: 20, bottom: 30),
               child: ElevatedButton(
-                child: Text(
-                  "+",
-                  style: TextStyle(fontSize: 40),
-                ),
                 onPressed: () {
                   _todoTextField();
                 },
@@ -78,6 +68,10 @@ class _HomeState extends State<Home> {
                     elevation: 40,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(60))),
+                child: const Text(
+                  "+",
+                  style: TextStyle(fontSize: 40),
+                ),
               ),
             ),
           ),
@@ -94,8 +88,8 @@ class _HomeState extends State<Home> {
 
   void _todoTextField() {
     showModalBottomSheet(
-      //Ok,  i faced a problem which is the bottomsheet overlapped by the keyboard so th fix that issue i have to follow some steps which is two lines
-      isScrollControlled: true, //step 1 bottomsheet overlapped
+      //Ok,  i faced a problem which is the bottomsheet overlapped by the keyboard so to fix that issue i have to follow some steps which is 6 steps
+      isScrollControlled: true, //step 1
 
       context: context,
       builder: ((context) {
@@ -108,17 +102,14 @@ class _HomeState extends State<Home> {
               children: [
                 Container(
                   height: MediaQuery.of(context).size.height * 0.5, //step 5
-                  padding: EdgeInsets.all(15),
-                  // height: 200,
+                  padding: const EdgeInsets.all(15),
                   child: Column(
                     children: [
                       //the new added to do text field starts here
                       TextField(
                         controller: _todoController,
                         autofocus: true, //step 6 bottomsheet overlapped
-                        decoration: InputDecoration(
-                            errorText:
-                                _validate ? 'Value Can\'t Be Empty' : null,
+                        decoration: const InputDecoration(
                             contentPadding: EdgeInsets.all(0),
                             prefixIcon: Icon(
                               Icons.check_box_outline_blank,
@@ -132,12 +123,11 @@ class _HomeState extends State<Home> {
                             border: InputBorder.none,
                             hintText: 'Tap to create a Task'),
                       ),
-                      //ends here
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           InkWell(
-                            child: Text(
+                            child: const Text(
                               'Done',
                               style: TextStyle(
                                   fontSize: 20,
@@ -145,12 +135,13 @@ class _HomeState extends State<Home> {
                                   color: tdBlue),
                             ),
                             onTap: () {
+                              // Clipboard.setData(ClipboardData(text: "text"));
                               setState(() {
                                 !_todoController.text.isEmpty
                                     ? _addToDoItem(_todoController.text)
                                     : ScaffoldMessenger.of(context)
-                                        .showSnackBar(new SnackBar(
-                                        content: Text(
+                                        .showSnackBar(SnackBar(
+                                        content: const Text(
                                             'You Can not add an empty task!'),
                                         behavior: SnackBarBehavior.floating,
                                         shape: RoundedRectangleBorder(
@@ -165,8 +156,8 @@ class _HomeState extends State<Home> {
                                             right: 20,
                                             left: 20),
                                       ));
+                                Navigator.pop(context);
                               });
-                              // _addToDoItem(_todoController.text);
                             },
                           ),
                         ],
