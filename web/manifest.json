@@ -1,6 +1,6 @@
 {
-    "name": "do_me_application",
-    "short_name": "do_me_application",
+    "name": "do_me",
+    "short_name": "do_me",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

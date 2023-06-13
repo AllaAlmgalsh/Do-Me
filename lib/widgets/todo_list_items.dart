@@ -1,4 +1,4 @@
-import 'package:do_me_application/cnstants/colors.dart';
+import 'package:do_me/cnstants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:test_api/hooks.dart';
 import '../standard/todo.dart';
@@ -47,7 +47,7 @@ class _ToDoItemState extends State<ToDoItem> {
             color: tdBlue,
           ),
           title: Text(
-            widget.todo.todoText!,
+            widget.todo.todotask!,
             style: TextStyle(
               fontSize: 16,
               color: tdBlack,

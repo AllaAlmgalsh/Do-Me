@@ -1,6 +1,6 @@
-# do_me_application
-Do Me is a To Do List Application.
-You Can Add, Delete, Edit, And Restore the tasks.
+# do_me
+
+A new Flutter project.
 
 ## Getting Started
 

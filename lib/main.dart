@@ -1,5 +1,4 @@
-import 'package:do_me_application/cnstants/colors.dart';
-import 'package:do_me_application/screens/home.dart';
+import 'package:do_me/screens/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

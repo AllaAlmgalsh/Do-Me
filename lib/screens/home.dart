@@ -184,7 +184,7 @@ class _HomeState extends State<Home> {
       todoList.add(
         ToDo(
             id: DateTime.now().millisecondsSinceEpoch.toString(),
-            todoText: todo),
+            todotask: todo), //required todoNote
       );
     });
     _todoController.clear();
@@ -203,7 +203,7 @@ class _HomeState extends State<Home> {
     } else {
       result = todoList
           .where(
-            (item) => item.todoText!.toLowerCase().contains(
+            (item) => item.todotask!.toLowerCase().contains(
                   enteredKeyword.toLowerCase(),
                 ),
           )
@@ -252,13 +252,13 @@ AppBar _buildAppBar() {
           color: tdBlack,
           size: 30,
         ),
-        Container(
-          height: 40,
-          width: 40,
-          child: ClipRRect(
-            child: Image.asset('assets/images/woman.png'),
-          ),
-        )
+        // Container(
+        //   height: 40,
+        //   width: 40,
+        //   child: ClipRRect(
+        //     child: Image.asset('assets/images/woman.png'),
+        //   ),
+        // )
       ],
     ),
   );
