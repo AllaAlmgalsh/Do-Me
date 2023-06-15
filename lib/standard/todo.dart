@@ -1,40 +1,82 @@
-import 'package:meta/meta.dart';
-import 'package:equatable/equatable.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+  import 'package:equatable/equatable.dart';
 
-@immutable
-class ToDo extends Equatable {
-  String? id;
-  String? todotask;
-  String? todoNote;
-  bool isDone;
+// ignore: must_be_immutable
+  class ToDo extends Equatable {
+  final String id;
+  final String todoTitle;
+  final String description;
+  final String date;
+  bool? isDone;
+  bool? isDeleted;
+  bool? isFavorite;
+
   ToDo({
-    required this.id,
-    required this.todotask,
-     this.todoNote,
-    this.isDone = false,
-  });
-  static List<ToDo> todoList() {
-    return [
-      ToDo(id: '01', todotask: ' fajr salah',todoNote:'at 4:16', isDone: true),
-      ToDo(
-        id: '02',
-        todotask: ' Check out emails!',todoNote:'at 4:16'
-      ),
-      ToDo(
-        id: '03',
-        todotask: ' make a Logo for the application',todoNote:'at 4:16'
-      ),
-      ToDo(id: '04', todotask: ' go to the graduation ',todoNote:'at 4:16', isDone: true),
-      ToDo(id: '05', todotask: ' Update the CV',todoNote:'at 4:16' ,isDone: true),
-      ToDo(
-          id: '06',
-          todotask: ' Find out how to start learning spain',todoNote:'at 4:16',
-          isDone: true),
-      ToDo(id: '07', todotask: ' Read Quran',todoNote:'at 4:16', isDone: true),
-    ];
+  required this.id,
+  required this.todoTitle,
+  required this.description,
+  required this.date,
+  this.isDone,
+  this.isDeleted,
+  this.isFavorite,
+  }) {
+  isDone = isDone ?? false;
+  isDeleted = isDeleted ?? false;
+  isFavorite = isFavorite ?? false;
   }
 
   @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
-}
+  List<Object?> get props => [
+  id,
+    todoTitle,
+  date,
+  description,
+  isDeleted,
+  isDone,
+  isFavorite,
+  ];
+
+  Map<String, dynamic> toMap() {
+  return <String, dynamic>{
+  'id': id,
+  'title': todoTitle,
+  'description': description,
+  'date': date,
+  'isDone': isDone,
+  'isDeleted': isDeleted,
+  'isFavorite': isFavorite,
+  };
+  }
+
+  ToDo copyWith({
+  String? id,
+  String? todoTitle,
+  String? description,
+  String? date,
+  bool? isDone,
+  bool? isDeleted,
+  bool? isFavorite,
+  }) {
+  return ToDo(
+  id: id ?? this.id,
+    todoTitle: todoTitle ?? this.todoTitle,
+  description: description ?? this.description,
+  date: date ?? this.date,
+  isDone: isDone ?? this.isDone,
+  isDeleted: isDeleted ?? this.isDeleted,
+  isFavorite: isFavorite ?? this.isFavorite,
+  );
+  }
+
+  factory ToDo.fromMap(Map<String, dynamic> map) {
+  return ToDo(
+  id: map['id'] as String,
+    todoTitle: map['title'] as String,
+  description: map['description'] as String,
+  date: map['date'] as String,
+  isDone: map['isDone'] != null ? map['isDone'] as bool : null,
+  isDeleted: map['isDeleted'] != null ? map['isDeleted'] as bool : null,
+  isFavorite: map['isFavorite'] != null ? map['isFavorite'] as bool : null,
+  );
+  }
+  }

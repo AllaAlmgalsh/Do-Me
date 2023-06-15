@@ -1,22 +1,52 @@
-import 'package:do_me/screens/home.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 
-import 'widgets/todo_list_items.dart';
+import 'bloc/bloc_exports.dart';
+import 'screens/tabs_screen.dart';
+import 'services/app_router.dart';
+import 'services/app_theme.dart';
 
-// in this application you can add, delete, search notes.
-void main() {
-  runApp(Do_Me());
-  //
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final storage = await HydratedStorage.build(
+      storageDirectory: await getApplicationDocumentsDirectory());
+  HydratedBlocOverrides.runZoned(
+        () => runApp(Do_Me(
+      appRouter: AppRouter(),
+    )),
+    storage: storage,
+  );
 }
 
 class Do_Me extends StatelessWidget {
-  const Do_Me({super.key});
+  const Do_Me({Key? key, required this.appRouter}) : super(key: key);
+  final AppRouter appRouter;
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Home(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => TasksBloc(),
+        ),
+        BlocProvider(
+          create: (context) => SwitchBloc(),
+        ),
+      ],
+      child: BlocBuilder<SwitchBloc, SwitchState>(
+        builder: (context, state) {
+          return MaterialApp(
+            title: 'Do Me',
+            theme: state.switchValue
+                ? AppThemes.appThemeData[AppTheme.darkTheme]
+                : AppThemes.appThemeData[AppTheme.lightTheme],
+            home: TabsScreen(),
+            onGenerateRoute: appRouter.onGenerateRoute,
+          );
+        },
+      ),
     );
   }
 }

@@ -1,6 +1,0 @@
-package com.example.do_me
-
-import io.flutter.embedding.android.FlutterActivity
-
-class MainActivity: FlutterActivity() {
-}
