@@ -11,7 +11,7 @@ class AppThemes {
       backgroundColor:  Color(0xFF212121),
       dividerColor: Colors.black54,
       floatingActionButtonTheme:  FloatingActionButtonThemeData(
-        backgroundColor: Colors.lightGreenAccent,
+        backgroundColor: Colors.deepPurpleAccent,
       ),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
