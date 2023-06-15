@@ -1,3 +1,4 @@
+import 'package:do_me/cnstants/colors.dart';
 import 'package:flutter/material.dart';
 
 enum AppTheme { lightTheme, darkTheme }
@@ -11,7 +12,7 @@ class AppThemes {
       backgroundColor:  Color(0xFF212121),
       dividerColor: Colors.black54,
       floatingActionButtonTheme:  FloatingActionButtonThemeData(
-        backgroundColor: Colors.deepPurpleAccent,
+        backgroundColor: Colors.grey,
       ),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
@@ -22,7 +23,7 @@ class AppThemes {
         subtitle1: TextStyle(color: Colors.white),
       ),
       bottomNavigationBarTheme:  BottomNavigationBarThemeData(
-          backgroundColor: Colors.deepPurple, unselectedItemColor: Colors.white),
+          backgroundColor: Colors.grey, unselectedItemColor: Colors.white),
     ),
 
     //
@@ -47,7 +48,7 @@ class AppThemes {
         subtitle1: TextStyle(color: Colors.black),
       ),
       bottomNavigationBarTheme:  BottomNavigationBarThemeData(
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: tdBlack,
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.white),
     ),

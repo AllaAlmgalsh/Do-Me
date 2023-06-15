@@ -1,3 +1,4 @@
+import 'package:do_me/cnstants/colors.dart';
 import 'package:flutter/material.dart';
 import '../bloc/bloc_exports.dart';
 import 'recycle_bin.dart';
@@ -14,7 +15,7 @@ class MyDrawer extends StatelessWidget {
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 15),
-                color: Colors.deepPurple,
+                color: tdBlue,
                 child: Text(
                   'Sittings',
                   style: Theme.of(context).textTheme.headline5,
@@ -26,7 +27,7 @@ class MyDrawer extends StatelessWidget {
                     onTap: () =>
                         Navigator.of(context).pushReplacementNamed(TabsScreen.id),
                     child: ListTile(
-                      leading: const Icon(Icons.folder_special,color: Color(0xfffdd835),),
+                      leading: const Icon(Icons.folder_special,color: Colors.amber),
                       title: const Text('My Tasks'),
                       trailing: Text(
                           '${state.pendingTasks.length} | ${state.completedTasks.length}'),
@@ -41,7 +42,7 @@ class MyDrawer extends StatelessWidget {
                     onTap: () =>
                         Navigator.of(context).pushReplacementNamed(RecycleBin.id),
                     child: ListTile(
-                      leading: const Icon(Icons.delete,color: Color(0xfff4511e),),
+                      leading: const Icon(Icons.delete,color: tdRed,),
                       title: const Text('Bin'),
                       trailing: Text('${state.removedTasks.length}'),
                     ),

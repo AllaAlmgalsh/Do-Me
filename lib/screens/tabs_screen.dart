@@ -1,3 +1,4 @@
+import 'package:do_me/cnstants/colors.dart';
 import 'package:flutter/material.dart';
 import 'add_task_screen.dart';
 import 'completed_tasks_screen.dart';
@@ -40,7 +41,7 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.deepPurple,
+      appBar: AppBar(backgroundColor: tdBlack,
         title: Text(_pageDetails[_selectedPageIndex]['title']),
         actions: [
           IconButton(

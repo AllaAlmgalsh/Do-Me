@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:do_me/cnstants/colors.dart';
 import 'package:flutter/material.dart';
 
 
@@ -29,24 +30,24 @@ class PopupMenu extends StatelessWidget {
                       onTap: null,
                       child: TextButton.icon(
                           onPressed: editTaskCallback,
-                          icon: const Icon(Icons.edit),
+                          icon: const Icon(Icons.edit,color: tdBlue,),
                           label: const Text('Edit'))),
                   PopupMenuItem(
                     onTap: likeOrDislikeCallback,
                     child: TextButton.icon(
                         onPressed: null,
                         icon: task.isFavorite == false
-                            ? const Icon(Icons.bookmark_add_outlined)
-                            : const Icon(Icons.bookmark_remove),
+                            ? const Icon(Icons.star_border_outlined,color: Colors.amber,)
+                            : const Icon(Icons.star),
                         label: task.isFavorite == false
-                            ? const Text('Add to Bookmarks')
-                            : const Text('Remove from Bookmarks')),
+                            ? const Text('Add to favorites')
+                            : const Text('Remove from favorites')),
                   ),
                   PopupMenuItem(
                       onTap: cancelOrDeleteCallback,
                       child: TextButton.icon(
                           onPressed: null,
-                          icon: const Icon(Icons.delete),
+                          icon: const Icon(Icons.delete,color: tdRed,),
                           label: const Text('Delete')))
                 ])
             : (context) => [
@@ -54,12 +55,12 @@ class PopupMenu extends StatelessWidget {
                       onTap: restoreTaskCallback,
                       child: TextButton.icon(
                           onPressed: null,
-                          icon: const Icon(Icons.restore_from_trash),
+                          icon: const Icon(Icons.restore_from_trash,color: Colors.amber,),
                           label: const Text('Restore'))),
                   PopupMenuItem(
                     child: TextButton.icon(
                         onPressed: null,
-                        icon: const Icon(Icons.delete_forever),
+                        icon: const Icon(Icons.delete_forever,color: tdRed,),
                         label: const Text('Delete Forever')),
                     onTap: cancelOrDeleteCallback,
                   )

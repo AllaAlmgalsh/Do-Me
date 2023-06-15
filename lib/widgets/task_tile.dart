@@ -47,8 +47,8 @@ class TaskTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 task.isFavorite == false
-                    ? const Icon(Icons.star_outline,color: tdRed,)
-                    : const Icon(Icons.star,color: tdRed,),
+                    ? const Icon(Icons.star_outline,color: Colors.amber,)
+                    : const Icon(Icons.star,color: Colors.amber,),
                 const SizedBox(
                   width: 10,
                 ),
