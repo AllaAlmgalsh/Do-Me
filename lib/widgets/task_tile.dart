@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 
 import '../bloc/bloc_exports.dart';
 import 'package:do_me/standard/todo.dart';
+import '../cnstants/colors.dart';
 import '../screens/edit_task_screen.dart';
 import 'popup_menu.dart';
 
@@ -46,8 +47,8 @@ class TaskTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 task.isFavorite == false
-                    ? const Icon(Icons.star_outline)
-                    : const Icon(Icons.star),
+                    ? const Icon(Icons.star_outline,color: tdRed,)
+                    : const Icon(Icons.star,color: tdRed,),
                 const SizedBox(
                   width: 10,
                 ),
