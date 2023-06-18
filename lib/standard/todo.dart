@@ -20,8 +20,7 @@ class ToDo with _$ToDo {
 
 
 
-//
-//
+
 // // ignore: must_be_immutable
 // class ToDo extends Equatable {
 //   final String id;
