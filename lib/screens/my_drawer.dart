@@ -15,7 +15,7 @@ class MyDrawer extends StatelessWidget {
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 15),
-                color: tdBlue,
+                color: tdBlack,
                 child: Text(
                   'Sittings',
                   style: Theme.of(context).textTheme.headline5,

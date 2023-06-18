@@ -23,10 +23,10 @@ class TasksState extends Equatable {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'pendingTasks': pendingTasks.map((x) => x.toMap()).toList(),
-      'completedTasks': pendingTasks.map((x) => x.toMap()).toList(),
-      'favoriteTasks': pendingTasks.map((x) => x.toMap()).toList(),
-      'removedTasks': pendingTasks.map((x) => x.toMap()).toList(),
+      'pendingTasks': pendingTasks.map((x) => x.toJson()).toList(),
+      'completedTasks': pendingTasks.map((x) => x.toJson()).toList(),
+      'favoriteTasks': pendingTasks.map((x) => x.toJson()).toList(),
+      'removedTasks': pendingTasks.map((x) => x.toJson()).toList(),
     };
   }
 
@@ -34,22 +34,22 @@ class TasksState extends Equatable {
     return TasksState(
       pendingTasks: List<ToDo>.from(
         (map['pendingTasks'])?.map<ToDo>(
-          (x) => ToDo.fromMap(x),
+          (x) => ToDo.fromJson(x),
         ),
       ),
       completedTasks: List<ToDo>.from(
         (map['completedTasks'])?.map<ToDo>(
-          (x) => ToDo.fromMap(x),
+          (x) => ToDo.fromJson(x),
         ),
       ),
       favoriteTasks: List<ToDo>.from(
         (map['favoriteTasks'])?.map<ToDo>(
-          (x) => ToDo.fromMap(x),
+          (x) => ToDo.fromJson(x),
         ),
       ),
       removedTasks: List<ToDo>.from(
         (map['removedTasks'])?.map<ToDo>(
-          (x) => ToDo.fromMap(x),
+          (x) => ToDo.fromJson(x),
         ),
       ),
     );

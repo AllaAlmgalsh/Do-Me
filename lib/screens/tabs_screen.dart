@@ -41,7 +41,7 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: tdBlack,
+      appBar: AppBar(
         title: Text(_pageDetails[_selectedPageIndex]['title']),
         actions: [
           IconButton(

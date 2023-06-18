@@ -9,9 +9,9 @@ class AppThemes {
       primarySwatch: Colors.grey,
       primaryColor: Colors.black,
       brightness: Brightness.dark,
-      backgroundColor:  Color(0xFF212121),
+      backgroundColor: Color(0xFF212121),
       dividerColor: Colors.black54,
-      floatingActionButtonTheme:  FloatingActionButtonThemeData(
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: Colors.grey,
       ),
       textButtonTheme: TextButtonThemeData(
@@ -19,10 +19,13 @@ class AppThemes {
           foregroundColor: MaterialStateProperty.all(Colors.white),
         ),
       ),
-      textTheme:  TextTheme(
+      appBarTheme: AppBarTheme(
+        color: Colors.grey,
+      ),
+      textTheme: TextTheme(
         subtitle1: TextStyle(color: Colors.white),
       ),
-      bottomNavigationBarTheme:  BottomNavigationBarThemeData(
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: Colors.grey, unselectedItemColor: Colors.white),
     ),
 
@@ -33,22 +36,25 @@ class AppThemes {
       primarySwatch: Colors.grey,
       primaryColor: Colors.white,
       brightness: Brightness.light,
-      backgroundColor:  Color(0xFF53229A),
-      dividerColor:  Color(0xff757575),
-      floatingActionButtonTheme:  FloatingActionButtonThemeData(
+      backgroundColor: tdBlue,
+      dividerColor: Color(0xff757575),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: Colors.amber,
         foregroundColor: Colors.black,
+      ),
+      appBarTheme: AppBarTheme(
+        color: tdRed,
       ),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all(Colors.black),
         ),
       ),
-      textTheme:  TextTheme(
+      textTheme: TextTheme(
         subtitle1: TextStyle(color: Colors.black),
       ),
-      bottomNavigationBarTheme:  BottomNavigationBarThemeData(
-          backgroundColor: tdBlack,
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: tdBlue,
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.white),
     ),
