@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:equatable/equatable.dart';
 
-import 'package:do_me/standard/todo.dart';
+import 'package:do_me/models/todo.dart';
 import '../bloc_exports.dart';
 
 part 'tasks_event.dart';

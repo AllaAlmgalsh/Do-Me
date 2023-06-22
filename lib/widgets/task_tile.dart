@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../bloc/bloc_exports.dart';
-import 'package:do_me/standard/todo.dart';
+import 'package:do_me/models/todo.dart';
 import '../cnstants/colors.dart';
 import '../screens/edit_task_screen.dart';
 import 'popup_menu.dart';

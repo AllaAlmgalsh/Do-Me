@@ -1,7 +1,7 @@
-import 'package:do_me/standard/todo.dart';
+import 'package:do_me/models/todo.dart';
 import 'package:flutter/material.dart';
 import '../bloc/bloc_exports.dart';
-import 'package:do_me/standard/todo.dart';
+import 'package:do_me/models/todo.dart';
 import '../widgets/tasks_list.dart';
 
 class CompletedTasksScreen extends StatefulWidget {

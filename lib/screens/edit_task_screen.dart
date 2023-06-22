@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 import '../bloc/bloc_exports.dart';
-import 'package:do_me/standard/todo.dart';
+import 'package:do_me/models/todo.dart';
 
 class EditTaskScreen extends StatelessWidget {
   final ToDo oldTask;
