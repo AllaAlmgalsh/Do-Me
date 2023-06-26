@@ -22,15 +22,17 @@ class AppThemes {
         subtitle1: TextStyle(color: Colors.white),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Colors.grey, unselectedItemColor: Colors.white),
+          backgroundColor: Colors.grey,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.black,),
     ),
 
     //
     //
 
     AppTheme.lightTheme: ThemeData(
-      primarySwatch: Colors.grey,
-      primaryColor: Colors.white,
+      primarySwatch: Colors.deepPurple,
+      primaryColor: Colors.deepPurple,
       brightness: Brightness.light,
       backgroundColor: const Color(0xFFE5E5E5),
       dividerColor: const Color(0xff757575),
@@ -47,7 +49,7 @@ class AppThemes {
         subtitle1: TextStyle(color: Colors.black),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Colors.grey,
+          backgroundColor: Colors.deepPurple,
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.white),
     ),
