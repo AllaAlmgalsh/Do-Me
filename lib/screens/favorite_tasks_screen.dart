@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../bloc/bloc_exports.dart';
-import 'package:do_me/models/todo.dart';
+import '../models/task.dart';
 import '../widgets/tasks_list.dart';
 
 class FavoriteTasksScreen extends StatefulWidget {
@@ -18,7 +18,7 @@ class _FavoriteTasksScreenState extends State<FavoriteTasksScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
-        List<ToDo> tasks = state.favoriteTasks;
+        List<Task> tasks = state.favoriteTasks;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

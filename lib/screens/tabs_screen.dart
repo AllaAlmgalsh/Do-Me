@@ -1,5 +1,5 @@
-import 'package:do_me/cnstants/colors.dart';
 import 'package:flutter/material.dart';
+
 import 'add_task_screen.dart';
 import 'completed_tasks_screen.dart';
 import 'favorite_tasks_screen.dart';
@@ -48,19 +48,19 @@ class _TabsScreenState extends State<TabsScreen> {
             onPressed: () {
               _addTask(context);
             },
-            icon:  Icon(Icons.add,color: Colors.white,),
+            icon: const Icon(Icons.add),
           )
         ],
       ),
-      drawer:  MyDrawer(),
+      drawer: const MyDrawer(),
       body: _pageDetails[_selectedPageIndex]['pageName'],
       floatingActionButton: _selectedPageIndex == 0
           ? FloatingActionButton(
-        child:  Icon(Icons.add),
-        onPressed: () {
-          _addTask(context);
-        },
-      )
+              child: const Icon(Icons.add),
+              onPressed: () {
+                _addTask(context);
+              },
+            )
           : null,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedPageIndex,
@@ -71,12 +71,12 @@ class _TabsScreenState extends State<TabsScreen> {
         },
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.pending_actions_outlined),
+              icon: Icon(Icons.incomplete_circle_sharp),
               label: 'Pending Tasks'),
           BottomNavigationBarItem(
               icon: Icon(Icons.done), label: 'Completed Tasks'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.star), label: 'Favorite Tasks'),
+              icon: Icon(Icons.favorite), label: 'Favorite Tasks'),
         ],
       ),
     );

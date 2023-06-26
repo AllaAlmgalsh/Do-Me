@@ -9,7 +9,7 @@ abstract class TasksEvent extends Equatable {
 }
 
 class AddTask extends TasksEvent {
-  final ToDo task;
+  final Task task;
 
   const AddTask({
     required this.task,
@@ -20,7 +20,7 @@ class AddTask extends TasksEvent {
 }
 
 class UpdateTask extends TasksEvent {
-  final ToDo task;
+  final Task task;
 
   const UpdateTask({
     required this.task,
@@ -31,7 +31,7 @@ class UpdateTask extends TasksEvent {
 }
 
 class RemoveTask extends TasksEvent {
-  final ToDo task;
+  final Task task;
 
   const RemoveTask({
     required this.task,
@@ -42,7 +42,7 @@ class RemoveTask extends TasksEvent {
 }
 
 class DeleteTask extends TasksEvent {
-  final ToDo task;
+  final Task task;
 
   const DeleteTask({
     required this.task,
@@ -53,7 +53,7 @@ class DeleteTask extends TasksEvent {
 }
 
 class MarkFavoriteOrUnFavoriteTask extends TasksEvent {
-  final ToDo task;
+  final Task task;
 
   const MarkFavoriteOrUnFavoriteTask({
     required this.task,
@@ -64,8 +64,8 @@ class MarkFavoriteOrUnFavoriteTask extends TasksEvent {
 }
 
 class EditTask extends TasksEvent {
-  final ToDo oldTask;
-  final ToDo newTask;
+  final Task oldTask;
+  final Task newTask;
 
   const EditTask({
     required this.oldTask,
@@ -80,7 +80,7 @@ class EditTask extends TasksEvent {
 }
 
 class RestoreTask extends TasksEvent {
-  final ToDo task;
+  final Task task;
   const RestoreTask({
     required this.task,
   });

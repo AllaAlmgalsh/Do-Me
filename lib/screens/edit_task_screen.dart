@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 
 import '../bloc/bloc_exports.dart';
-import 'package:do_me/models/todo.dart';
+import '../models/task.dart';
 
 class EditTaskScreen extends StatelessWidget {
-  final ToDo oldTask;
+  final Task oldTask;
   const EditTaskScreen({
     Key? key,
     required this.oldTask,
@@ -14,7 +14,7 @@ class EditTaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController titleController =
-        TextEditingController(text: oldTask.todoTitle);
+        TextEditingController(text: oldTask.title);
     TextEditingController descriptionController =
         TextEditingController(text: oldTask.description);
     return Container(
@@ -55,9 +55,9 @@ class EditTaskScreen extends StatelessWidget {
                   child: const Text('Cancel')),
               ElevatedButton(
                   onPressed: () {
-                    var editedTask = ToDo(
+                    var editedTask = Task(
                         id: oldTask.id,
-                        todoTitle: titleController.text,
+                        title: titleController.text,
                         description: descriptionController.text,
                         date: DateTime.now().toString());
                     context

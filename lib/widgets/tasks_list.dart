@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:do_me/models/todo.dart';
+import '../models/task.dart';
 import 'task_tile.dart';
 
 class TasksList extends StatelessWidget {
@@ -9,7 +9,7 @@ class TasksList extends StatelessWidget {
     required this.tasks,
   }) : super(key: key);
 
-  final List<ToDo> tasks;
+  final List<Task> tasks;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class TasksList extends StatelessWidget {
                         text: 'Text\n',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      TextSpan(text: task.todoTitle),
+                      TextSpan(text: task.title),
                       const TextSpan(
                         text: '\n\nDescription\n',
                         style: TextStyle(fontWeight: FontWeight.bold),

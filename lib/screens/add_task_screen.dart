@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import '../services/guid_gen.dart';
+
 import '../bloc/bloc_exports.dart';
-import 'package:do_me/models/todo.dart';
+import '../models/task.dart';
 
 class AddTaskScreen extends StatelessWidget {
   const AddTaskScreen({
@@ -13,8 +14,7 @@ class AddTaskScreen extends StatelessWidget {
     TextEditingController titleController = TextEditingController();
     TextEditingController descriptionController = TextEditingController();
     return Container(
-
-      padding:  EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(20.0),
       child: Column(
         children: [
           const Text(
@@ -25,29 +25,21 @@ class AddTaskScreen extends StatelessWidget {
             height: 10,
           ),
           Padding(
-            padding:  EdgeInsets.only(top: 10, bottom: 10),
+            padding: const EdgeInsets.only(top: 10, bottom: 10),
             child: TextField(
-              controller: titleController,
               autofocus: true,
-              minLines: 1,
-              maxLines: 3,
-              decoration:  InputDecoration(
-                  label: Text("Title"), border: OutlineInputBorder(borderSide: BorderSide(
-                  width: 2, color: Colors.amber),
-              ),
-              ),
+              controller: titleController,
+              decoration: const InputDecoration(
+                  label: Text("Title"), border: OutlineInputBorder()),
             ),
           ),
           TextField(
             controller: descriptionController,
             autofocus: true,
-            minLines: 1,
-            maxLines: 3,
-            decoration:  InputDecoration(
-                label: Text("Description"), enabledBorder: OutlineInputBorder( borderSide: BorderSide(
-                width: 2, color: Colors.amber),
-            ),
-            ),
+            minLines: 3,
+            maxLines: 5,
+            decoration: const InputDecoration(
+                label: Text("Description"), border: OutlineInputBorder()),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -57,13 +49,11 @@ class AddTaskScreen extends StatelessWidget {
                     Navigator.pop(context);
                   }),
                   child: const Text('Cancel')),
-              ElevatedButton( style: ElevatedButton.styleFrom(
-                primary: Colors.amber
-              ),
+              ElevatedButton(
                   onPressed: () {
-                    var task = ToDo(
+                    var task = Task(
                         id: GUIDGen.generate(),
-                        todoTitle: titleController.text,
+                        title: titleController.text,
                         description: descriptionController.text,
                         date: DateTime.now().toString());
                     context.read<TasksBloc>().add(AddTask(task: task));

@@ -1,7 +1,7 @@
-import 'package:do_me/models/todo.dart';
 import 'package:flutter/material.dart';
+
 import '../bloc/bloc_exports.dart';
-import 'package:do_me/models/todo.dart';
+import '../models/task.dart';
 import '../widgets/tasks_list.dart';
 
 class CompletedTasksScreen extends StatefulWidget {
@@ -18,7 +18,7 @@ class _CompletedTasksScreenState extends State<CompletedTasksScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
-        List<ToDo> tasks = state.completedTasks;
+        List<Task> tasks = state.completedTasks;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

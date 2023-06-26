@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../bloc/bloc_exports.dart';
-import 'package:do_me/models/todo.dart';
-import '../cnstants/colors.dart';
+import '../models/task.dart';
 import '../screens/edit_task_screen.dart';
 import 'popup_menu.dart';
 
@@ -13,9 +12,9 @@ class TaskTile extends StatelessWidget {
     required this.task,
   }) : super(key: key);
 
-  final ToDo task;
+  final Task task;
 
-  void _removeOrDeleteTask(BuildContext context, ToDo task) {
+  void _removeOrDeleteTask(BuildContext context, Task task) {
     task.isDeleted!
         ? context.read<TasksBloc>().add(DeleteTask(task: task))
         : context.read<TasksBloc>().add(RemoveTask(task: task));
@@ -47,8 +46,8 @@ class TaskTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 task.isFavorite == false
-                    ? const Icon(Icons.star_outline,color: Colors.amber,)
-                    : const Icon(Icons.star,color: Colors.amber,),
+                    ? const Icon(Icons.star_outline)
+                    : const Icon(Icons.star),
                 const SizedBox(
                   width: 10,
                 ),
@@ -56,7 +55,7 @@ class TaskTile extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(task.todoTitle,
+                      Text(task.title,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               fontSize: 18,

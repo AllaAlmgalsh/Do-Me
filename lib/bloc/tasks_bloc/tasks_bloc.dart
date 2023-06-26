@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:equatable/equatable.dart';
 
-import 'package:do_me/models/todo.dart';
+import '../../models/task.dart';
 import '../bloc_exports.dart';
 
 part 'tasks_event.dart';
@@ -33,9 +33,9 @@ class TasksBloc extends HydratedBloc<TasksEvent, TasksState> {
   FutureOr<void> _onUpdateTask(UpdateTask event, Emitter<TasksState> emit) {
     final state = this.state;
     final task = event.task;
-    List<ToDo> pendingTasks = state.pendingTasks;
-    List<ToDo> completedTasks = state.completedTasks;
-    List<ToDo> favoriteTasks = state.favoriteTasks;
+    List<Task> pendingTasks = state.pendingTasks;
+    List<Task> completedTasks = state.completedTasks;
+    List<Task> favoriteTasks = state.favoriteTasks;
 
     if (task.isDone == false) {
       if (task.isFavorite == false) {
@@ -104,9 +104,9 @@ class TasksBloc extends HydratedBloc<TasksEvent, TasksState> {
   FutureOr<void> _onMarkFavoriteOrUnFavoriteTask(
       MarkFavoriteOrUnFavoriteTask event, Emitter<TasksState> emit) {
     final state = this.state;
-    List<ToDo> pendingTasks = state.pendingTasks;
-    List<ToDo> completedTasks = state.completedTasks;
-    List<ToDo> favoriteTasks = state.favoriteTasks;
+    List<Task> pendingTasks = state.pendingTasks;
+    List<Task> completedTasks = state.completedTasks;
+    List<Task> favoriteTasks = state.favoriteTasks;
 
     if (event.task.isDone == false) {
       if (event.task.isFavorite == false) {
@@ -147,7 +147,7 @@ class TasksBloc extends HydratedBloc<TasksEvent, TasksState> {
 
   FutureOr<void> _onEditTask(EditTask event, Emitter<TasksState> emit) async {
     final state = this.state;
-    List<ToDo> favoriteTasks = state.favoriteTasks;
+    List<Task> favoriteTasks = state.favoriteTasks;
     if (event.oldTask.isFavorite == true) {
       favoriteTasks
         ..remove(event.oldTask)
