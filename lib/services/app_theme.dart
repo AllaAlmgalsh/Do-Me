@@ -37,7 +37,7 @@ class AppThemes {
       backgroundColor: const Color(0xFFE5E5E5),
       dividerColor: const Color(0xff757575),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.amber,
         foregroundColor: Colors.white,
       ),
       textButtonTheme: TextButtonThemeData(

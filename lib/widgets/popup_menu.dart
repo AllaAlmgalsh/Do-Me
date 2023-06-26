@@ -28,7 +28,7 @@ class PopupMenu extends StatelessWidget {
                       onTap: null,
                       child: TextButton.icon(
                           onPressed: editTaskCallback,
-                          icon: const Icon(Icons.edit),
+                          icon: const Icon(Icons.edit,color: Colors.deepPurple,),
                           label: const Text('Edit'))),
                   PopupMenuItem(
                     onTap: likeOrDislikeCallback,
@@ -36,7 +36,7 @@ class PopupMenu extends StatelessWidget {
                         onPressed: null,
                         icon: task.isFavorite == false
                             ? const Icon(Icons.star_border_outlined)
-                            : const Icon(Icons.star),
+                            : const Icon(Icons.star,color: Colors.amber,),
                         label: task.isFavorite == false
                             ? const Text('Add to Bookmarks')
                             : const Text('Remove from Bookmarks')),
@@ -45,7 +45,7 @@ class PopupMenu extends StatelessWidget {
                       onTap: cancelOrDeleteCallback,
                       child: TextButton.icon(
                           onPressed: null,
-                          icon: const Icon(Icons.delete),
+                          icon: const Icon(Icons.delete,color: Colors.red,),
                           label: const Text('Delete')))
                 ])
             : (context) => [
